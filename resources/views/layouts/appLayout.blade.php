@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script src={{ asset('js/tailwindConfig.js') }} ></script>    
+    <script src="https://wolf-tech.herokuapp.com/js/tailwindConfig.js"></script>
     <title>Tech</title>
     <style>
       body {
@@ -30,11 +30,11 @@
 </head>
 <body>
   <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');">
-    <div class="flex antialiased text-gray-900 dark:bg-dark dark:text-light">        
+    <div class="flex antialiased text-gray-900 dark:bg-dark dark:text-light">
       <div x-ref="loading" class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-primary">
         Loading.....
       </div>
-      <div x-transition:enter="transform transition-transform duration-300 bg-white" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" x-show="isSidebarOpen" class="fixed inset-y-0 z-10 flex w-80">        
+      <div x-transition:enter="transform transition-transform duration-300 bg-white" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" x-show="isSidebarOpen" class="fixed inset-y-0 z-10 flex w-80">
         <!-- Sidebar content -->
         <div class="z-10 flex flex-col flex-1 bg-white dark:bg-deep shadow-2xl">
           <div class="flex items-center justify-between flex-shrink-0 w-64 p-4">
@@ -68,8 +68,8 @@
           </div>
         </div>
       </div>
-      <main class="flex flex-col items-center justify-center flex-1">        
-        <div class="p-5 bg-white dark:bg-deep w-full text-center">          
+      <main class="flex flex-col items-center justify-center flex-1">
+        <div class="p-5 bg-white dark:bg-deep w-full text-center">
           <button @click="isSidebarOpen = true" class="absolute rounded-lg left-5">
             <svg class="w-6 h-6 text-deep dark:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -79,10 +79,10 @@
           <i class="fab fa-wolf-pack-battalion text-primary text-5xl"></i>
           <button id="toggle-theme" class="absolute rounded-lg right-5">
             <i id="toggle-icon" class="far text-deep dark:text-white dark:text-white text-2xl"></i>
-          </button>                         
+          </button>
         </div>
         <div class="p-2 bg-white dark:bg-deep text-deep dark:text-white font-bold text-center w-full text-sm md:text-base">
-          <div class="grid grid-cols-3">            
+          <div class="grid grid-cols-3">
             <a href="/" class="hover:underline underline-offset-8 cursor-pointer hover:text-primary">
               Tecnología
             </a>
@@ -92,14 +92,14 @@
             <a href="/entertainment" class="hover:underline underline-offset-8 cursor-pointer hover:text-primary">
               Ocio
             </a>
-          </div>          
+          </div>
         </div>
-        <div class="bg-white dark:bg-dark dark:text-white md:h-screen">        
+        <div class="bg-white dark:bg-dark dark:text-white md:h-screen">
           @yield('content')
         </div>
       </main>
     </div>
-  </div>     
-  <script src={{ asset('js/functions.js') }} ></script>
+  </div>
+  <script src="https://wolf-tech.herokuapp.com/js/functions.js"></script>
 </body>
 </html>
