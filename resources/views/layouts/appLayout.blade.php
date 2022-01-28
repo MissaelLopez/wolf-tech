@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script src="https://wolf-tech.herokuapp.com/js/tailwindConfig.js"></script>
+    <script src={{ URL::asset('js/tailwindConfig.js') }}></script>
     <title>Tech</title>
     <style>
       body {
@@ -28,7 +28,7 @@
   	  }
     </style>
 </head>
-<body>
+<body>  
   <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');">
     <div class="flex antialiased text-gray-900 dark:bg-dark dark:text-light">
       <div x-ref="loading" class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-primary">
@@ -51,20 +51,27 @@
             </button>
           </div>
           <nav class="flex flex-col flex-1 w-64 p-4 mt-4 dark:text-white">
-            <a href="#" class="flex items-center space-x-2">
-              <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-              </svg>
-              <span>Home</span>
-            </a>
+            @if ( empty( $logged ) )
+              <a href="/signin" class="flex items-center space-x-2 mb-3">
+                <i class="fa fa-sign-in mx-2"></i>         
+                <p class="hover:underline underline-offset-4">Iniciar sesión</p>
+              </a>
+              <a href="/signup" class="flex items-center space-x-2 mb-3">
+                <i class="fa fa-user-plus mx-2"></i>         
+                <p class="hover:underline underline-offset-4">Registrarse</p>
+              </a>
+            @else
+              <p class="font-bold">{{ $logged->name }}</p>
+              <p class="text-sm text-primary">{{ $logged->email }}</p>
+            @endif
           </nav>
-          <div class="flex-shrink-0 p-4">
-            <button class="flex items-center space-x-2">
-              <svg aria-hidden="true" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
-              </svg>
-              <span>Logout</span>
-            </button>
+          <div class="flex-shrink-0 p-4 dark:text-white">
+            @if ( !empty( $logged ) )
+              <a href="/logout" class="flex items-center space-x-2 mb-3">
+                <i class="fa fa-sign-in mx-2"></i>         
+                <p class="hover:underline underline-offset-4">Cerrar sesión</p>
+              </a>
+            @endif
           </div>
         </div>
       </div>
@@ -100,6 +107,6 @@
       </main>
     </div>
   </div>
-  <script src="https://wolf-tech.herokuapp.com/js/functions.js"></script>
+  <script src={{ URL::asset('js/functions.js') }}></script>
 </body>
 </html>
