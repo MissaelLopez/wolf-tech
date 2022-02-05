@@ -64,6 +64,15 @@
                                 <span class="ml-2 text-sm tracking-wide truncate">Publicaciones</span>
                             </a>
                         </li>
+                        <br>
+                        <li>
+                            <a href="/" class="relative flex flex-row items-center h-11 text-white-600 pr-6 hover:bg-gray-200 dark:hover:bg-gray-700">
+                                <span class="inline-flex justify-center items-center ml-4">                                 
+                                    <i class="w-5 h-5 far fa-newspaper"></i>
+                                </span>
+                                <span class="ml-2 text-sm tracking-wide truncate">Blog</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

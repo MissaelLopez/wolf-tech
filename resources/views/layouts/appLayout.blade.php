@@ -63,6 +63,11 @@
             @else
               <p class="font-bold">{{ $logged->name }}</p>
               <p class="text-sm text-primary">{{ $logged->email }}</p>
+              <br>
+              <a href="/dashboard/editors" class="flex items-center space-x-2 mb-3">
+                <i class="fa fa-sign-in mx-2"></i>         
+                <p class="hover:underline underline-offset-4">Dashboard</p>
+              </a>
             @endif
           </nav>
           <div class="flex-shrink-0 p-4 dark:text-white">
