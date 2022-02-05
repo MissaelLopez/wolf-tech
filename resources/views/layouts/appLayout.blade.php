@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>    
     <script src="https://wolf-tech.herokuapp.com/js/tailwindConfig.js"></script>
-    <title>Tech</title>
+    <title>{{ $title ?? 'Game News' }}</title>
     <style>
       body {
         scrollbar-width: auto;
@@ -34,13 +34,13 @@
       <div x-ref="loading" class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-primary">
         Loading.....
       </div>
-      <div x-transition:enter="transform transition-transform duration-300 bg-white" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" x-show="isSidebarOpen" class="fixed inset-y-0 z-10 flex w-80">
+      <div x-transition:enter="transform transition-transform duration-300 bg-white" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" x-show="isSidebarOpen" class="fixed inset-y-0 z-50 flex w-80">
         <!-- Sidebar content -->
         <div class="z-10 flex flex-col flex-1 bg-white dark:bg-deep shadow-2xl">
           <div class="flex items-center justify-between flex-shrink-0 w-64 p-4">
             <!-- Logo -->
             <a href="#">
-            <i class="fab fa-wolf-pack-battalion text-primary text-5xl"></i>
+              <i class="fab fa-wolf-pack-battalion text-primary text-5xl"></i>
             </a>
             <!-- Close btn -->
             <button @click="isSidebarOpen = false" class="p-1 rounded-lg focus:outline-none focus:ring">
@@ -68,7 +68,7 @@
           <div class="flex-shrink-0 p-4 dark:text-white">
             @if ( !empty( $logged ) )
               <a href="/logout" class="flex items-center space-x-2 mb-3">
-                <i class="fa fa-sign-in mx-2"></i>         
+                <i class="fa fa-sign-in mx-2"></i> 
                 <p class="hover:underline underline-offset-4">Cerrar sesión</p>
               </a>
             @endif
@@ -83,25 +83,25 @@
             </svg>
             <span class="sr-only">Open menu</span>
           </button>
-          <i class="fab fa-wolf-pack-battalion text-primary text-5xl"></i>
+          <i class="fab fa-wolf-pack-battalion text-primary text-3xl"></i>
           <button id="toggle-theme" class="absolute rounded-lg right-5">
             <i id="toggle-icon" class="far text-deep dark:text-white dark:text-white text-2xl"></i>
           </button>
         </div>
-        <div class="p-2 bg-white dark:bg-deep text-deep dark:text-white font-bold text-center w-full text-sm md:text-base">
+        <div class="p-2 bg-white dark:bg-dark text-deep dark:text-white font-bold text-center w-full text-sm md:text-base">
           <div class="grid grid-cols-3">
-            <a href="/" class="hover:underline underline-offset-8 cursor-pointer hover:text-primary">
-              Tecnología
+            <a href="/">
+              <button class="bg-gray-200 dark:bg-deep dark:text-white rounded-2xl py-2 px-5">Noticias</button>
             </a>
-            <a href="/development" class="hover:underline underline-offset-8 cursor-pointer hover:text-primary">
-              Desarrollo
+            <a href="/opiniones">
+              <button class="bg-gray-200 dark:bg-deep dark:text-white rounded-2xl py-2 px-4">Opiniones</button>
             </a>
-            <a href="/entertainment" class="hover:underline underline-offset-8 cursor-pointer hover:text-primary">
-              Ocio
+            <a href="/componentes">
+              <button class="bg-gray-200 dark:bg-deep dark:text-white rounded-2xl py-2 px-4">Componentes</button>
             </a>
           </div>
         </div>
-        <div class="bg-white dark:bg-dark dark:text-white md:h-screen">
+        <div class="bg-white dark:bg-dark dark:text-white">
           @yield('content')
         </div>
       </main>

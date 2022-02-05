@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,36 +21,13 @@ Route::post('/signin', [AuthenticationController::class, 'signin']);
 Route::get('/signup', [AuthenticationController::class, 'signupView']);
 Route::post('/signup', [AuthenticationController::class, 'signup']);
 Route::get('/logout', [AuthenticationController::class, 'logout']);
-Route::get('/', [ApplicationController::class, 'main']);
+Route::get('/', [ApplicationController::class, 'newsView']);
+Route::get('/opiniones', [ApplicationController::class, 'opinionsView']);
+Route::get('/componentes', [ApplicationController::class, 'componentsView']);
 
-Route::get('/tech-section1', function () {
-    return view('pages.techSection1');
-});
+Route::get('/posts/{section}/{post}', [ApplicationController::class, 'readPost']);
 
-Route::get('/tech-article1', function () {
-    return view('pages.techArticle1');
-});
-
-Route::get('/development', function () {
-    return view('development');
-});
-
-Route::get('/development-section1', function () {
-    return view('pages.developmentSection1');
-});
-
-Route::get('/development-article1', function () {
-    return view('pages.developmentArticle1');
-});
-
-Route::get('/entertainment', function () {
-    return view('entertainment');
-});
-
-Route::get('/entertainment-section1', function () {
-    return view('pages.entertainmentSection1');
-});
-
-Route::get('/entertainment-article1', function () {
-    return view('pages.entertainmentArticle1');
-});
+Route::get('/dashboard/editors', [DashboardController::class, 'editorsView']);
+Route::get('/dashboard/readers', [DashboardController::class, 'readersView']);
+Route::get('/dashboard/posts', [DashboardController::class, 'postsView']);
+Route::get('/dashboard/new-post', [DashboardController::class, 'newPostView']);

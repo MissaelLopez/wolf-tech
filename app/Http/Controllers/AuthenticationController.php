@@ -17,10 +17,16 @@ class AuthenticationController extends Controller
     public function signin(Request $request)
     {
         $data = $request->only('email', 'password');
-        if ( User::where('email', $data['email'])->first() ) {
+        $user = User::where('email', $data['email'])->first();
+        if ( $user ) {
             if ( Auth::attempt( $data ) ) {
                 $request->session()->put('authenticated', $data['email']);
-                return redirect()->intended('/');
+                if ( $user->rol == 'admin' ) {
+                    return redirect()->intended('/dashboard/editors');
+                } else {
+                    return redirect()->intended('/');
+                }
+                
             } else {
                 return view('signin', ['msg' => 'Contraseña Incorrecta']);
             }
@@ -52,6 +58,7 @@ class AuthenticationController extends Controller
             $newUser->name = $data['username'];
             $newUser->email = $data['email'];
             $newUser->password = Hash::make($data['password']);
+            $newUser->rol = 'user';
             $newUser->save();
             $request->session()->put('authenticated', $data['email']);
             return redirect()->intended('/');
