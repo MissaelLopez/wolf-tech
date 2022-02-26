@@ -142,4 +142,4 @@ const getPosts = async ( sectionName ) => {
 }
 
 getPosts( "noticias" );
-ScrollReveal().reveal(".post-content");
+ScrollReveal().reveal(".post-content", { delay: 500 });
