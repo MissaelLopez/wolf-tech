@@ -5,8 +5,6 @@ const setup = () => {
     };
 };
 
-
-
 const sectionPosts = document.getElementById("section-posts");
 const sectionBreadcrumb = document.getElementById("section-breadcrumbs");
 const sectionContentPost = document.getElementById("section-content-post");
