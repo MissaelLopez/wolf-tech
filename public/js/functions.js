@@ -123,7 +123,7 @@ const getPosts = async ( sectionName ) => {
                 <div class="rounded overflow-hidden mb-8">
                     <img src="https://picsum.photos/500/500?random=${ Math.random() * (100 - 1) + 1 }" alt="image" class="w-full" >
                 </div>
-                <div class="post-content">                  
+                <div>                  
                     <h3 class="font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark dark:text-white">
                         ${ post.title }
                     </h3>
@@ -142,4 +142,3 @@ const getPosts = async ( sectionName ) => {
 }
 
 getPosts( "noticias" );
-ScrollReveal().reveal(".post-content", { delay: 500 });
