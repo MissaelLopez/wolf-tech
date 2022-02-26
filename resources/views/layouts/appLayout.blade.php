@@ -115,11 +115,10 @@
       </main>
     </div>
   </div>
-  <!-- <script src="https://wolf-tech.herokuapp.com/js/functions.js"></script> -->
+  <script src="https://wolf-tech.herokuapp.com/js/functions.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
-  <script src="{{ asset('js/functions.js') }}"></script>
 </body>
 </html>
