@@ -7,40 +7,35 @@ use Illuminate\Http\Request;
 
 class ApplicationController extends Controller
 {
-    public function newsView(Request $request)
+    public function allPosts(Request $request)
     {
         $session = $request->session()->get('authenticated');
         $logged = User::where('email', $session)->first();
-        $posts = json_decode( file_get_contents('https://jsonplaceholder.typicode.com/posts'), true );
 
-        return view('public.news', ['title' => 'Noticias', 'logged' => $logged, 'posts' => $posts]);
+        return view('public.allPosts', ['logged' => $logged]);
     }
 
-    public function opinionsView(Request $request)
+    public function noticias(Request $request)
     {
-        $session = $request->session()->get('authenticated');
-        $logged = User::where('email', $session)->first();
         $posts = json_decode( file_get_contents('https://jsonplaceholder.typicode.com/posts'), true );
-
-        return view('public.opinions', ['title' => 'Opiniones', 'logged' => $logged, 'posts' => $posts]);
+        return $posts;
     }
 
-    public function componentsView(Request $request)
+    public function opiniones(Request $request)
     {
-        $session = $request->session()->get('authenticated');
-        $logged = User::where('email', $session)->first();
         $posts = json_decode( file_get_contents('https://jsonplaceholder.typicode.com/posts'), true );
-
-        return view('public.components', ['title' => 'Componentes', 'logged' => $logged, 'posts' => $posts]);
+        return $posts;
     }
 
-    public function readPost(Request $request, $section, $postId)
+    public function componentes(Request $request)
     {
-        $session = $request->session()->get('authenticated');
-        $logged = User::where('email', $session)->first();
         $posts = json_decode( file_get_contents('https://jsonplaceholder.typicode.com/posts'), true );
-        $post = json_decode( file_get_contents('https://jsonplaceholder.typicode.com/posts/' . $postId ), true );        
+        return $posts;
+    }
 
-        return view('public.readPost', ['title' => 'Popular', 'logged' => $logged, 'posts' => $posts, 'post' => $post, 'section' => $section]);
+    public function getPost(Request $request, $section, $postId)
+    {
+        $post = json_decode( file_get_contents('https://jsonplaceholder.typicode.com/posts/' . $postId ), true );
+        return $post;
     }
 }

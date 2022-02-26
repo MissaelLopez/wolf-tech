@@ -21,11 +21,14 @@ Route::post('/signin', [AuthenticationController::class, 'signin']);
 Route::get('/signup', [AuthenticationController::class, 'signupView']);
 Route::post('/signup', [AuthenticationController::class, 'signup']);
 Route::get('/logout', [AuthenticationController::class, 'logout']);
-Route::get('/', [ApplicationController::class, 'newsView']);
-Route::get('/opiniones', [ApplicationController::class, 'opinionsView']);
-Route::get('/componentes', [ApplicationController::class, 'componentsView']);
 
-Route::get('/posts/{section}/{post}', [ApplicationController::class, 'readPost']);
+Route::get('/', [ApplicationController::class, 'allPosts']);
+
+Route::get('/api/noticias', [ApplicationController::class, 'noticias']);
+Route::get('/api/opiniones', [ApplicationController::class, 'opiniones']);
+Route::get('/api/componentes', [ApplicationController::class, 'componentes']);
+
+Route::get('/api/{section}/{post}', [ApplicationController::class, 'getPost']);
 
 Route::get('/dashboard/editors', [DashboardController::class, 'editorsView']);
 Route::get('/dashboard/readers', [DashboardController::class, 'readersView']);
