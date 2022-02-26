@@ -5,7 +5,7 @@ const setup = () => {
     };
 };
 
-AOS.init();
+
 
 const sectionPosts = document.getElementById("section-posts");
 const sectionBreadcrumb = document.getElementById("section-breadcrumbs");
