@@ -121,7 +121,7 @@ const getPosts = async ( sectionName ) => {
         sectionPosts.innerHTML += `<div data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" class="w-full md:w-1/2 lg:w-1/3 px-4">
             <div class="mx-auto mb-10">
                 <div class="rounded overflow-hidden mb-8">
-                    <img src="https://picsum.photos/300/300?random=${ Math.random() * (100 - 1) + 1 }" alt="image" class="w-full h-24" >
+                    <img src="https://picsum.photos/500/500?random=${ Math.random() * (100 - 1) + 1 }" alt="image" class="object-cover w-full h-48" >
                 </div>
                 <div>                  
                     <h3 class="font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark dark:text-white">
