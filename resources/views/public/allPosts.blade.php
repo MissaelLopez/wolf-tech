@@ -3,7 +3,7 @@
     <section class="mb-14">
         <div class="hidden h-screen" id="status">            
             <div class="flex flex-wrap -mx-4">
-                @for ($i = 0; $i < 8; $i++)
+                @for ($i = 0; $i < 6; $i++)
                 <div class="shadow rounded-md p-4 max-w-sm w-full mx-auto mb-5">
                     <div class="animate-pulse flex space-x-4 space-y-4">
                         <div class="rounded-xl bg-gray-200 dark:bg-deep h-10 w-10"></div>

@@ -98,13 +98,13 @@
         <div class="p-2 bg-white dark:bg-dark text-deep dark:text-white font-bold text-center w-full text-sm md:text-base">
           <div class="grid grid-cols-3">
             <div>
-              <button onclick="getPosts('noticias')" class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-gray-200 dark:bg-deep dark:text-white rounded-2xl py-2 px-5">Noticias</button>
+              <button onclick="getPosts('noticias')" class="outline-none transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-gray-200 dark:bg-deep dark:text-white rounded-2xl py-2 px-5">Noticias</button>
             </div>
             <div>
-              <button onclick="getPosts('opiniones')" class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-gray-200 dark:bg-deep dark:text-white rounded-2xl py-2 px-4">Opiniones</button>
+              <button onclick="getPosts('opiniones')" class="outline-none transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-gray-200 dark:bg-deep dark:text-white rounded-2xl py-2 px-4">Opiniones</button>
             </div>
             <div>
-              <button onclick="getPosts('componentes')" class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-gray-200 dark:bg-deep dark:text-white rounded-2xl py-2 px-4">Componentes</button>
+              <button onclick="getPosts('componentes')" class="outline-none transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-gray-200 dark:bg-deep dark:text-white rounded-2xl py-2 px-4">Componentes</button>
             </div>            
           </div>
         </div>
