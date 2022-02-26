@@ -123,7 +123,7 @@ const getPosts = async ( sectionName ) => {
                 <div class="rounded overflow-hidden mb-8">
                     <img src="https://picsum.photos/500/500?random=${ Math.random() * (100 - 1) + 1 }" alt="image" class="w-full" >
                 </div>
-                <div>                  
+                <div data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">                  
                     <h3 class="font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark dark:text-white">
                         ${ post.title }
                     </h3>
