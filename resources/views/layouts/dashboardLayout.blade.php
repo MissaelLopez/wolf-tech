@@ -86,7 +86,7 @@
 
         </div>
     </div>    
-    <!-- <script src="https://wolf-tech.herokuapp.com/js/functions.js"></script> -->
-    <script src="{{ asset('js/functions.js') }}"></script>
+    <script src="https://wolf-tech.herokuapp.com/js/functions.js"></script>
+    <!-- <script src="{{ asset('js/functions.js') }}"></script> -->
 </body>
 </html>

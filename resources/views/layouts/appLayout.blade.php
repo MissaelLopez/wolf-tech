@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>    
-    <script src="https://wolf-tech.herokuapp.com/js/tailwindConfig.js"></script>
+    <script src="https://wolf-tech.herokuapp.com/js/tailwindConfig.js"></script>     
     <title>{{ $title ?? 'Game News' }}</title>
     <style>
       body {
@@ -97,13 +98,13 @@
         <div class="p-2 bg-white dark:bg-dark text-deep dark:text-white font-bold text-center w-full text-sm md:text-base">
           <div class="grid grid-cols-3">
             <div>
-              <button onclick="getPosts('noticias')" class="bg-gray-200 dark:bg-deep dark:text-white rounded-2xl py-2 px-5">Noticias</button>
+              <button onclick="getPosts('noticias')" class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-gray-200 dark:bg-deep dark:text-white rounded-2xl py-2 px-5">Noticias</button>
             </div>
             <div>
-              <button onclick="getPosts('opiniones')" class="bg-gray-200 dark:bg-deep dark:text-white rounded-2xl py-2 px-4">Opiniones</button>
+              <button onclick="getPosts('opiniones')" class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-gray-200 dark:bg-deep dark:text-white rounded-2xl py-2 px-4">Opiniones</button>
             </div>
             <div>
-              <button onclick="getPosts('componentes')" class="bg-gray-200 dark:bg-deep dark:text-white rounded-2xl py-2 px-4">Componentes</button>
+              <button onclick="getPosts('componentes')" class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-gray-200 dark:bg-deep dark:text-white rounded-2xl py-2 px-4">Componentes</button>
             </div>            
           </div>
         </div>
@@ -113,7 +114,8 @@
       </main>
     </div>
   </div>
-  <!-- <script src="https://wolf-tech.herokuapp.com/js/functions.js"></script> -->
-  <script src="{{ asset('js/functions.js') }}"></script>
+  <script src="https://wolf-tech.herokuapp.com/js/functions.js"></script> 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- <script src="{{ asset('js/functions.js') }}"></script> -->
 </body>
 </html>
