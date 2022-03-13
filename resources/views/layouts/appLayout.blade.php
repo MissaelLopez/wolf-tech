@@ -10,7 +10,7 @@
     <link href="https://wolf-tech.herokuapp.com/css/styles.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>    
-    <script src="https://wolf-tech.herokuapp.com/js/tailwindConfig.js"></script>
+    <script src="https://wolf-tech.herokuapp.com/js/tailwindConfig.js"></script>    
     <script src="https://unpkg.com/scrollreveal"></script>  
     <title>{{ $title ?? 'Game News' }}</title>
     <style>
@@ -117,6 +117,7 @@
     </div>
   </div>
   <script src="https://wolf-tech.herokuapp.com/js/functions.js"></script>
+  <!-- <script src="{{ asset('js/functions.js') }}"></script> -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
