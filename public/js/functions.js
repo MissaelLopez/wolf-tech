@@ -120,8 +120,8 @@ const getPosts = async ( sectionName ) => {
     posts.map(post => {
         sectionPosts.innerHTML += `<div class="w-full md:w-1/2 lg:w-1/3 px-4">
             <div  class="mx-auto mb-10">
-                <div class="rounded overflow-hidden mb-8">
-                    <img src="https://picsum.photos/500/500?random=${ Math.random() * (100 - 1) + 1 }" alt="image" class="w-full" >
+                <div class="rounded overflow-hidden mb-8 shadow-2xl border">
+                    <img src="https://picsum.photos/500/500?random=${ Math.random() * (100 - 1) + 1 }" alt="image" class="w-full">
                 </div>
                 <div>                  
                     <h3 class="font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark dark:text-white">

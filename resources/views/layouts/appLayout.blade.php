@@ -43,7 +43,7 @@
         <div class="z-10 flex flex-col flex-1 bg-white dark:bg-deep shadow-2xl">
           <div class="flex items-center justify-between flex-shrink-0 w-64 p-4">
             <!-- Logo -->
-            <a href="#">
+            <a href="/" title="Regresar al inicio">
               <i class="fab fa-wolf-pack-battalion text-primary text-5xl"></i>
             </a>
             <!-- Close btn -->
@@ -92,7 +92,9 @@
             </svg>
             <span class="sr-only">Open menu</span>
           </button>
-          <i class="fab fa-wolf-pack-battalion text-primary text-3xl"></i>
+          <a href="/" title="Regresar al inicio">
+            <i class="fab fa-wolf-pack-battalion text-primary text-3xl"></i>
+          </a>
           <button id="toggle-theme" class="absolute rounded-lg right-5">
             <i id="toggle-icon" class="far text-deep dark:text-white dark:text-white text-2xl"></i>
           </button>
@@ -116,8 +118,8 @@
       </main>
     </div>
   </div>
-  <script src="https://wolf-tech.herokuapp.com/js/functions.js"></script>
-  <!-- <script src="{{ asset('js/functions.js') }}"></script> -->
+  <!-- <script src="https://wolf-tech.herokuapp.com/js/functions.js"></script> -->
+  <script src="{{ asset('js/functions.js') }}"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
