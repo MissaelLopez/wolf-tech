@@ -30,7 +30,10 @@ Route::get('/api/componentes', [ApplicationController::class, 'componentes']);
 
 Route::get('/api/{section}/{post}', [ApplicationController::class, 'getPost']);
 
-Route::get('/dashboard/editors', [DashboardController::class, 'editorsView']);
-Route::get('/dashboard/readers', [DashboardController::class, 'readersView']);
-Route::get('/dashboard/posts', [DashboardController::class, 'postsView']);
-Route::get('/dashboard/new-post', [DashboardController::class, 'newPostView']);
+Route::group(['middleware' => ['auth']], function()
+{
+  Route::get('/dashboard/editors', [DashboardController::class, 'editorsView']);
+  Route::get('/dashboard/readers', [DashboardController::class, 'readersView']);
+  Route::get('/dashboard/posts', [DashboardController::class, 'postsView']);
+  Route::get('/dashboard/new-post', [DashboardController::class, 'newPostView']);
+});

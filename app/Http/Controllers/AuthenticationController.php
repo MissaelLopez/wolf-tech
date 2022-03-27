@@ -22,8 +22,10 @@ class AuthenticationController extends Controller
             if ( Auth::attempt( $data ) ) {
                 $request->session()->put('authenticated', $data['email']);
                 if ( $user->rol == 'admin' ) {
+                    $request->session()->put('admin', $data['email']);
                     return redirect()->intended('/dashboard/editors');
                 } else {
+                    $request->session()->put('user', $data['email']);
                     return redirect()->intended('/');
                 }
                 
