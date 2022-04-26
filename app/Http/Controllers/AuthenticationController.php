@@ -21,7 +21,7 @@ class AuthenticationController extends Controller
         if ( $user ) {
             if ( Auth::attempt( $data ) ) {
                 $request->session()->put('authenticated', $data['email']);
-                if ( $user->rol == 'admin' ) {
+                if ( $user->rol == 'admin' || $user->rol == 'editor' ) {
                     $request->session()->put('admin', $data['email']);
                     return redirect()->intended('/dashboard/editors');
                 } else {
@@ -60,7 +60,7 @@ class AuthenticationController extends Controller
             $newUser->name = $data['username'];
             $newUser->email = $data['email'];
             $newUser->password = Hash::make($data['password']);
-            $newUser->rol = 'user';
+            $newUser->rol = 'reader';
             $newUser->save();
             $request->session()->put('authenticated', $data['email']);
             return redirect()->intended('/');

@@ -30,11 +30,17 @@
       body::-webkit-scrollbar-thumb {
      	  background-color: #de744c;
   	  }
+
+      .bg {
+        background-repeat: repeat;
+        background-color: #191918;
+        background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z' fill='%23fe0001' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+      }
     </style>
 </head>
-<body>  
+<body class="bg">
   <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');">
-    <div class="flex antialiased text-gray-900 dark:bg-dark dark:text-light">
+    <div class="flex antialiased text-gray-900 bg dark:bg-dark dark:text-light">
       <div x-ref="loading" class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-primary">
         Loading.....
       </div>
@@ -68,7 +74,7 @@
               <p class="font-bold">{{ $logged->name }}</p>
               <p class="text-sm text-primary">{{ $logged->email }}</p>
               <br>              
-              @if ( $logged->rol == "admin" )
+              @if ( $logged->rol == "admin" || $logged->rol == "editor" )
               <a href="/dashboard/editors" class="flex items-center space-x-2 mb-3">
                 <i class="fa fa-sign-in mx-2"></i>         
                 <p class="hover:underline underline-offset-4">Dashboard</p>
@@ -97,7 +103,7 @@
           <a href="/" title="Regresar al inicio">
             <i class="fab fa-wolf-pack-battalion text-primary text-3xl"></i>
           </a>
-          <button id="toggle-theme" class="absolute rounded-lg right-5">
+          <button id="toggle-theme" class="hidden rounded-lg right-5">
             <i id="toggle-icon" class="far text-deep dark:text-white dark:text-white text-2xl"></i>
           </button>
         </div>
@@ -120,8 +126,8 @@
       </main>
     </div>
   </div>
-  <script src="https://wolf-tech.herokuapp.com/js/functions.js"></script>
-  <!-- <script src="{{ asset('js/functions.js') }}"></script> -->
+  <!-- <script src="https://wolf-tech.herokuapp.com/js/functions.js"></script> -->
+  <script src="{{ asset('js/functions.js') }}"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  
 </body>
 </html>
