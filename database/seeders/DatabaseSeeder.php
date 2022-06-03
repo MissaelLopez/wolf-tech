@@ -61,7 +61,7 @@ class DatabaseSeeder extends Seeder
         
         <p>Sabiendo esto, solo queda esperar hasta el&nbsp;<strong>22 de junio</strong>&nbsp;(u otra fecha m&aacute;s temprana, si le&eacute;is esto desde otra regi&oacute;n) para conocer las bondades del nuevo PS Plus. Por el momento, ya sabemos que el nuevo servicio de PlayStation&nbsp;<a href="https://www.3djuegos.com/noticias-ver/221121/el-nuevo-ps-plus-no-eliminara-la-ps-plus-collection-y/">no eliminar&aacute; la PS Plus Collection</a>&nbsp;y, sumado a esto, Latinoam&eacute;rica tendr&aacute;&nbsp;<strong>una suscripci&oacute;n distinta</strong>.</p>';
         $post1->section = 'noticias';
-        $post1->image_url = 'storage/840_560.jpg';
+        $post1->image_url = 'https://movilforum.com/wp-content/uploads/2021/09/PS-Plus-filtracion.jpg';
         $post1->user_id = 2;
         $post1->save();
 
@@ -103,6 +103,7 @@ class DatabaseSeeder extends Seeder
         $post2->section = 'noticias';
         $post2->image_url = 'storage/710945.jpg';
         $post2->user_id = 2;
+        $post2->save();
 
         $post3 = new Post();
         $post3->title = 'Kirby y la tierra olvidada Análisis del exclusivo de Switch tras los pasos de Super Mario Odyssey';
@@ -174,6 +175,7 @@ class DatabaseSeeder extends Seeder
         $post3->section = 'opiniones';
         $post3->image_url = 'storage/kirby-tierra-olvidada-2634935.webp';
         $post3->user_id = 2;
+        $post3->save();
 
         $post4 = new Post();
         $post4->title = '9 juegos imprescindibles de GameBoy Advance que nos encantaría ver en Nintendo Switch Online';
@@ -289,6 +291,7 @@ class DatabaseSeeder extends Seeder
         $post4->section = 'opiniones';
         $post4->image_url = 'storage/2110-15-Nintendo-Switch-Online-Animal-Crossing.webp';
         $post4->user_id = 2;
+        $post4->save();
 
         $post5 = new Post();
         $post5->title = 'Si vas a comprar una consola de segunda mano, estos consejos te ahorrarán sorpresas desagradables';
@@ -326,5 +329,6 @@ class DatabaseSeeder extends Seeder
         $post5->section = 'componentes';
         $post5->image_url = 'storage/Comparación-de-consolas.jpg';
         $post5->user_id = 2;
+        $post5->save();
     }
 }
