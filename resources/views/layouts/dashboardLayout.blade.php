@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://wolf-tech.herokuapp.com/js/tailwindConfig.js"></script>
@@ -41,28 +42,30 @@
             <div class="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-white dark:bg-deep h-full text-gray-700 dark:text-white transition-all duration-300 z-10 sidebar border-r border-gray-200 dark:border-deep">
                 <div class="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
                     <ul class="flex flex-col py-4 space-y-1">                 
-                        <li>
-                            <a href="/dashboard/editors" class="relative flex flex-row items-center h-11 text-white-600 pr-6 hover:bg-gray-200 dark:hover:bg-gray-700">
-                                <span class="inline-flex justify-center items-center ml-4">                                 
-                                    <i class="w-5 h-5 fa fa-users"></i>
-                                </span>
-                                <span class="ml-2 text-sm tracking-wide truncate">Editores</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/dashboard/readers" class="relative flex flex-row items-center h-11 text-white-600 pr-6 hover:bg-gray-200 dark:hover:bg-gray-700">
-                                <span class="inline-flex justify-center items-center ml-4">                                 
-                                    <i class="w-5 h-5 fas fa-book-reader"></i>
-                                </span>
-                                <span class="ml-2 text-sm tracking-wide truncate">Lectores</span>
-                            </a>
-                        </li>
+                        @if ( $user->rol == 'admin' )
+                            <li>
+                                <a href="/dashboard/editors" class="relative flex flex-row items-center h-11 text-white-600 pr-6 hover:bg-gray-200 dark:hover:bg-gray-700">
+                                    <span class="inline-flex justify-center items-center ml-4">                                 
+                                        <i class="w-5 h-5 fa fa-users"></i>
+                                    </span>
+                                    <span class="ml-2 text-sm tracking-wide truncate">Editores</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/dashboard/readers" class="relative flex flex-row items-center h-11 text-white-600 pr-6 hover:bg-gray-200 dark:hover:bg-gray-700">
+                                    <span class="inline-flex justify-center items-center ml-4">                                 
+                                        <i class="w-5 h-5 fas fa-book-reader"></i>
+                                    </span>
+                                    <span class="ml-2 text-sm tracking-wide truncate">Lectores</span>
+                                </a>
+                            </li>
+                        @endif
                         <li>
                             <a href="/dashboard/posts" class="relative flex flex-row items-center h-11 text-white-600 pr-6 hover:bg-gray-200 dark:hover:bg-gray-700">
                                 <span class="inline-flex justify-center items-center ml-4">                                 
                                     <i class="w-5 h-5 far fa-newspaper"></i>
                                 </span>
-                                <span class="ml-2 text-sm tracking-wide truncate">Publicaciones</span>
+                                <span class="ml-2 text-sm tracking-wide truncate">{{ $user->rol == 'editor' ? 'Mis Publicaciones' : 'Publicaciones' }}</span>
                             </a>
                         </li>
                         <br>
@@ -71,7 +74,15 @@
                                 <span class="inline-flex justify-center items-center ml-4">                                 
                                     <i class="w-5 h-5 far fa-newspaper"></i>
                                 </span>
-                                <span class="ml-2 text-sm tracking-wide truncate">Blog</span>
+                                <span class="ml-2 text-sm tracking-wide truncate">Regresar al Blog</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/logout" class="relative flex flex-row items-center h-11 text-white-600 pr-6 hover:bg-gray-200 dark:hover:bg-gray-700">
+                                <span class="inline-flex justify-center items-center ml-4">                                 
+                                    <i class="w-5 h-5 far fa-newspaper"></i>
+                                </span>
+                                <span class="ml-2 text-sm tracking-wide truncate">Cerrar sesión</span>
                             </a>
                         </li>
                     </ul>

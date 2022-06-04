@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -17,25 +18,25 @@ class ApplicationController extends Controller
 
     public function noticias(Request $request)
     {
-        $posts = json_decode( file_get_contents('https://jsonplaceholder.typicode.com/posts'), true );
+        $posts = Post::where('section', 'noticias')->get();
         return $posts;
     }
 
     public function opiniones(Request $request)
     {
-        $posts = json_decode( file_get_contents('https://jsonplaceholder.typicode.com/posts'), true );
+        $posts = Post::where('section', 'opiniones')->get();
         return $posts;
     }
 
     public function componentes(Request $request)
     {
-        $posts = json_decode( file_get_contents('https://jsonplaceholder.typicode.com/posts'), true );
+        $posts = Post::where('section', 'componentes')->get();
         return $posts;
     }
 
     public function getPost(Request $request, $section, $postId)
     {
-        $post = json_decode( file_get_contents('https://jsonplaceholder.typicode.com/posts/' . $postId ), true );
+        $post = Post::where('id', $postId)->first();
         return $post;
     }
 }
