@@ -8,8 +8,7 @@
             <thead>
                 <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-200 dark:text-gray-400 dark:bg-deep">
                     <th class="px-4 py-3">Nombre</th>
-                    <th class="px-4 py-3">Correo Electrónico</th>
-                    <th class="px-4 py-3">Editar</th>
+                    <th class="px-4 py-3">Correo Electrónico</th>                    
                     <th class="px-4 py-3">Eliminar</th>
                 </tr>
             </thead>
@@ -23,16 +22,15 @@
                                     <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                                 </div>
                                 <div>
-                                    <p class="font-semibold">{{ $reader['name'] }}</p>
+                                    <p class="font-semibold">{{ $reader->name }}</p>
                                 </div>
                             </div>
                         </td>
-                        <td class="px-4 py-3 text-sm">{{ $reader['email'] }}</td>
-                        <td class="px-4 py-3 text-xs">
-                            <button class="">Editar</button>
-                        </td>
+                        <td class="px-4 py-3 text-sm">{{ $reader->email }}</td>
                         <td class="px-4 py-3 text-sm">
-                            <button class="">Eliminar</button>
+                            <a href="/delete-reader/{{ $reader->id }}">
+                                <button class="">Eliminar</button>
+                            </a>
                         </td>
                     </tr>
                 @endforeach

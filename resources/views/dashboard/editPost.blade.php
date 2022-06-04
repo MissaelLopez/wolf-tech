@@ -1,25 +1,22 @@
 @extends('layouts.dashboardLayout')
 @section('content')
 @include('includes.breadcrumb', [ 'breadcrumbs' => [ 'Home' => '/', 'Dashboard' => '/dashboard', 'Publicaciones' => '/dashboard/posts', 'Nueva Publicación' => '' ] ])
-<div class="py-12">
+<div class="py-12">    
   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="overflow-hidden shadow-sm sm:rounded-lg">
           <div class="p-6">
-              <form method="POST" action="/savePost" enctype="multipart/form-data">
+              <form method="POST" action="/edit-post/{{ $post->id }}" enctype="multipart/form-data">
                 @csrf
                   <div class="mb-4">
                       <label class="text-xl text-black dark:text-white">Titulo <span class="text-red-500">*</span></label></br>
-                      <input type="text" class="text-black border-2 border-gray-300 p-2 w-full" name="title" id="title" value="" required />
-                  </div>
-                  
-                  <div class="mb-8">
-                      <label class="text-xl text-black dark:text-white">Imagen Principal</label></br>
-                      <input id="image" type="file" class="filepond" name="filepond" data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3">
-                  </div>
+                      <input value="{{ $post->title }}" type="text" class="text-black border-2 border-gray-300 p-2 w-full" name="title" id="title" value="" required />
+                  </div>                  
 
                   <div class="mb-8">
                       <label class="text-xl text-black dark:text-white">Contenido <span class="text-red-500">*</span></label></br>
-                      <textarea name="content" class="border-2 border-gray-500"></textarea>
+                      <textarea name="content" class="border-2 border-gray-500">
+                        {{ $post->content }}
+                      </textarea>
                   </div>
 
                   <div class="mb-8">
